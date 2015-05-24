@@ -13,7 +13,10 @@ MESSAGE( STATUS "CUDA libs: " ${CUDA_LIBS} )
 set(CMAKE_BUILD_TYPE Release)
 
 INCLUDE_DIRECTORIES ( src/GraphUtils /usr/local/include/eigen3 ${OpenCV_INCLUDE_DIRS})
+<<<<<<< HEAD
 LINK_DIRECTORIES ( /usr/local/cuda/lib64/ )
+=======
+>>>>>>> origin/master
 
 add_executable(STRUCK
     src/Config.cpp
