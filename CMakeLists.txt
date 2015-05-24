@@ -3,10 +3,17 @@ project(STRUCK)
 cmake_minimum_required(VERSION 2.6)
 
 find_package(OpenCV REQUIRED)
+MESSAGE( STATUS "OpenCV version: " ${OpenCV_VERSION} )
+MESSAGE( STATUS "OpenCV libs: " ${OpenCV_LIBS} )
+
+find_package(CUDA REQUIRED)
+MESSAGE( STATUS "CUDA version: " ${CUDA_VERSION} )
+MESSAGE( STATUS "CUDA libs: " ${CUDA_LIBS} )
 
 set(CMAKE_BUILD_TYPE Release)
 
-INCLUDE_DIRECTORIES ( src/GraphUtils /usr/include/eigen2 ${OpenCV_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES ( src/GraphUtils /usr/local/include/eigen3 ${OpenCV_INCLUDE_DIRS})
+LINK_DIRECTORIES ( /usr/local/cuda/lib64/ )
 
 add_executable(STRUCK
     src/Config.cpp
