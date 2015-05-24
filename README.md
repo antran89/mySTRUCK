@@ -27,11 +27,7 @@ OpenCV: http://opencv.willowgarage.com/
 Eigen: http://eigen.tuxfamily.org/
 
 This code has been developed and tested using 
-<<<<<<< HEAD
 the lastest OpenCV v2.4 and Eigen v3.2.4
-=======
-OpenCV v2.4 and Eigen v3.2.4
->>>>>>> origin/master
 
 -----
 Usage
