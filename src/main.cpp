@@ -234,7 +234,8 @@ int main(int argc, char* argv[])
 			}
 			else if (!tracker.IsInitialised())
 			{
-				rectangle(result, initBB, CV_RGB(255, 255, 255));
+                cv::Rect newBB(initBB.XMin(), initBB.YMin(), initBB.Width(), initBB.Height());
+                cv::rectangle(result, newBB, CV_RGB(255, 255, 255));
 			}
 		}
 		else
@@ -264,12 +265,14 @@ int main(int argc, char* argv[])
 			{
 				tracker.Debug();
 			}
-			
-			rectangle(result, tracker.GetBB(), CV_RGB(0, 255, 0));
+
+            FloatRect bb = tracker.GetBB();
+            cv::Rect newBB(bb.XMin(), bb.YMin(), bb.Width(), bb.Height());
+            cv::rectangle(result, newBB, CV_RGB(0, 255, 0));
 			
 			if (outFile)
 			{
-				const FloatRect& bb = tracker.GetBB();
+                //const FloatRect& bb = tracker.GetBB();
 				outFile << bb.XMin()/scaleW << "," << bb.YMin()/scaleH << "," << bb.Width()/scaleW << "," << bb.Height()/scaleH << endl;
 			}
 		}
